@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Divide TTRPG - Character Generation Tool</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="divide.css">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="logo"><a href="Index.html">Divide TTRPG</a></h1>
+        <nav>
+          <ul>
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="CharGen.html">Character Generation</a></li>
+            <li><a href="Shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="account.html">Account</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="about-page-content">
+      <form id="character-form">
+        <div>
+          <h1>Character Generation</h1>
+          <p>Fill out the form below to generate your character.</p>
+        </div>
+        <div class="input-group">
+          <label for="name">Character Name:</label>
+          <input type="text" id="name" name="name" required onblur="validateName()">
+          <div id = "nameError" style="color:red"></div>
+      </div>
+
+        <div class="input-group">
+        <label for="height">Character Height:</label>
+        <input type="text" id="height" name="height" required></p><br>
+      </div>
+
+        <div class="input-group">
+        <label for="weight">Character Weight:</label>
+        <input type="text" id="weight" name="weight" required></p><br>
+      </div>
+
+      <div class="input-group">
+        <label for="race">Character Race:</label>
+        <select id="race" name="race" required onblur="validateRace()">
+            <option value="">--Please choose an option--</option>
+            <option value="Amphallion">Amphallion</option>
+            <option value="Amaldon">Amaldon</option>
+            <option value="Arthryx">Arthryx</option>
+            <option value="Draekyn">Draekyn</option>
+            <option value="Esiish">Esiish</option>
+            <option value="Oshssi">Oshssi</option>
+            <option value="Rreshk">Rreshk</option>
+            <option value="Golariin">Golariin</option>
+            <option value="Mastodon">Mastodon</option>
+            <option value="Saygren">Saygren</option>
+            <option value="Skrallion">Skrallion</option>
+            <option value="Aevys">Aevys</option>
+            <option value="Falkys">Falkys</option>
+            <option value="Nhevys">Nhevys</option>
+            <option value="Olaerys">Olaerys</option>
+            <option value="Fen">Fen</option>
+            <option value="Gobrilden">Gobrilden</option>
+            <option value="Haalfer">Haalfer</option>
+            <option value="Vayl Dwarf">Vayl Dwarf</option>
+            <option value="Mountain Dwarf">Mountain Dwarf</option>
+            <option value="Embr Dwarf">Dwarf Subrace: Embr Dwarf</option>
+            <option value="Human">Human</option>
+            <option value="Hyrikar">Hyrikar</option>
+            <option value="Whidikar">Whidikar</option>
+            <option value="Vesikar">Vesikar</option>
+            <option value="Satyr">Satyr</option>
+            <option value="Ork">Ork</option>
+            <option value="Embryn">Embryn</option>
+            <option value="Iceryn">Iceryn</option>
+            <option value="Erthyn">Erthyn</option>
+            <option value="Bograaz">Bograaz</option>
+            <option value="Floraaz">Floraaz</option>
+            <option value="Silvaraaz">Silvaraaz</option>
+            <option value="Darkborn">Darkborn</option>
+            <option value="Dark Undead">Dark Undead</option>
+        </select>
+        <p id="raceError" style="color:red"></p>
+        </p>
+    </div>
+
+      <div class="input-group">
+        <label for="characterClass">Character Class:</label>
+        <select id="characterClass" name="characterClass" required onblur="validateClass()">
+            <option value="">--Please choose an option--</option>
+            <option value="Alchemist">Alchemist</option>
+            <option value="Bard">Bard</option>
+            <option value="Celritter">Celritter</option>
+            <option value="Cleric">Cleric</option>
+            <option value="Druid">Druid</option>
+            <option value="Mage">Mage</option>
+            <option value="Monk">Monk</option>
+            <option value="Raider">Raider</option>
+            <option value="Ranger">Ranger</option>
+            <option value="Rogue">Rogue</option>
+            <option value="Shaman">Shaman</option>
+            <option value="Soldier">Soldier</option>
+            <option value="Vindicator">Vindicator</option>
+            <option value="Warlock">Warlock</option>
+        </select>
+        <p id="classError" style="color:red"></p>
+        </p>
+    </div>
+
+    <div class="input-group">
+      <label for="subtree">Subtree:</label>
+      <select id="subtree" name="subtree" required>
+          <!-- options will be populated here -->
+      </select>
+      </p>
+  </div>
+
+      <div id="pointsRemaining">Points Remaining: <span id="pointsValue">11</span><p id="pointsError" style="color:red"></p></div>
+      <div id="statsError" style="color:red">You must input a number into all Statistics, you may input 0-3</div>
+        <div class="input-group">
+        <label for="constitution">Constitution</label>
+        <input type="number" id="constitution" name="constitution" min="0" max="3" >
+      </div>
+      
+
+        <div class="input-group">
+        <label for="strength">Strength</label>
+        <input type="number" id="strength" name="strength" min="0" max="3">
+      </div>
+
+        <div class="input-group">
+        <label for="dexterity">Dexterity</label>
+        <input type="number" id="dexterity" name="dexterity" min="0" max="3">
+      </div>
+
+        <div class="input-group">
+        <label for="charisma">Charisma</label>
+        <input type="number" id="charisma" name="charisma" min="0" max="3">
+      </div>
+
+        <div class="input-group">
+        <label for="intellect">Intellect</label>
+        <input type="number" id="intellect" name="intellect" min="0" max="3">
+      </div>
+
+        <div class="input-group">
+        <label for="wisdom">Wisdom</label>
+        <input type="number" id="wisdom" name="wisdom" min="0" max="3">
+      </div>
+      <p id="noInputError" style="color: red;"></p>
+      <button id="nextButton">Next</button>
+      <button id="backButton">Back</button>
+  
+      <input id="submitButton" type="submit" value="Create Character">
+      </form>
+      
+      <div class="random-character">
+        <h1>Randomized Character Generator</h1>
+        <p>Tired of making a full character?</p>
+        <p>Use our Randomized Character Generator to create a character for you!</p>
+        <button id="randomize-button" type="submit" onclick="randomCharacter()" value="Create Character">Randomize</button>
+      </div>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <p>&copy; 2023 Divide TTRPG</p>
+      </div>
+    </footer>
+    <script src = "Scripts/charGenValidation.js" ></script>
+    <Script src = "Scripts/charGen.js"></Script>
+    <script src = "Scripts/randomChar.js"></script>
+  </body>
+</html>
